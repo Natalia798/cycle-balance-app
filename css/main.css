@@ -1,0 +1,249 @@
+:root {
+  --text-primary: #f1baba;
+  --text-secondary: #325221;
+  --text-dark: #e63668;
+  --text-light: #f1baba;
+  --text-white: #ffffff;
+
+  --bg-primary: #f3d9d9;
+  /* --bg-secondary: #9bbcaa; */
+  --bg-secondary: #325221;
+  --bg-dark: #e63668;
+  --bg-light: #f1baba;
+
+  --button-color: #82c09e;
+
+  --fs-large: 1rem;
+  --fs-medium: 0.875rem;
+  --fs-small: 0.75rem;
+
+  --spacing-xl: 2.625rem;
+  --spacing-large: 1.75rem;
+  --spacing-medium: 1rem;
+  --spacing-small: 0.5rem;
+  --spacing-tiny: 0.25rem;
+
+  --mobile-logo-height: 45px;
+}
+
+/* Resetam proprietatile default */
+* {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+}
+
+/* Necesar pentru mobil */
+input[type="submit"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  opacity: 1;
+}
+
+/* Adaugam proprietati legate de font si culori */
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+h1 {
+  font-size: 3.5rem;
+  color: var(--text-dark);
+}
+
+h2 {
+  font-size: 1.75rem;
+  color: var(--text-primary);
+}
+
+h3 {
+  font-size: 1.5rem;
+  color: var(--text-secondary);
+}
+
+p {
+  font-size: var(--fs-medium);
+  color: var(--text-dark);
+}
+
+/* Reusable classes */
+.container {
+  max-width: 1200px;
+  min-width: 320px;
+
+  margin: auto;
+
+  padding: var(--spacing-medium);
+}
+
+/* Layout */
+body {
+  display: flex;
+  flex-direction: column;
+
+  min-height: 100vh;
+}
+
+main {
+  flex-grow: 1;
+}
+
+/* Header stilization */
+nav {
+  position: fixed;
+  top: 0;
+
+  width: 100%;
+
+  background-color: var(--bg-primary);
+
+  z-index: 2;
+}
+
+nav .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav .logo-link {
+  padding: 0;
+}
+
+nav img {
+  width: auto;
+  height: 60px;
+}
+
+nav .menu-icon {
+  color: var(--text-dark);
+  display: none;
+}
+
+nav input[type="checkbox"] {
+  display: none;
+}
+
+nav ul {
+  display: flex;
+}
+
+nav li {
+  position: relative;
+}
+
+nav a {
+  font-size: var(--fs-small);
+  text-transform: uppercase;
+
+  color: var(--text-dark);
+
+  padding: var(--spacing-medium);
+}
+
+nav .arrow-down-icon {
+  font-size: var(--fs-large);
+
+  position: absolute;
+}
+
+nav a:hover {
+  color: var(--text-secondary);
+}
+
+nav .submenu {
+  display: none;
+
+  position: absolute;
+  top: calc(100% - var(--spacing-small));
+  left: var(--spacing-medium);
+
+  width: 15rem;
+  padding: var(--spacing-tiny) 0;
+
+  background-color: var(--bg-primary);
+
+  z-index: 3;
+}
+
+nav .submenu a {
+  padding: var(--spacing-tiny) var(--spacing-small);
+}
+
+nav .menstrual-phases:hover .submenu {
+  display: block;
+}
+
+/* Mobile stilization */
+@media (max-width: 768px) {
+  nav img {
+    height: var(--mobile-logo-height);
+  }
+
+  nav ul {
+    display: none;
+  }
+
+  nav .menu-icon {
+    display: block;
+  }
+
+  nav .menstrual-phases:hover .submenu {
+    display: block;
+  }
+
+  nav .menstrual-phases:hover .cycle-link {
+    margin-bottom: 3rem;
+  }
+
+  nav .menu-icon-container {
+    position: relative;
+  }
+
+  nav input[type="checkbox"] {
+    display: block;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    height: 100%;
+    width: 100%;
+
+    opacity: 0;
+
+    margin: 0;
+
+    cursor: pointer;
+  }
+
+  nav input[type="checkbox"]:checked ~ ul {
+    display: block;
+    width: 100%;
+
+    position: fixed;
+
+    top: calc(var(--mobile-logo-height) + 2 * var(--spacing-medium));
+    left: 0;
+
+    background-color: var(--bg-primary);
+  }
+}
