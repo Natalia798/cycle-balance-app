@@ -11,7 +11,8 @@
   --bg-dark: #e63668;
   --bg-light: #f1baba;
 
-  --button-color: #82c09e;
+  --button-color: #e63668;
+  --text-button-color: #ffffff;
 
   --fs-large: 1rem;
   --fs-medium: 0.875rem;
@@ -26,7 +27,7 @@
   --mobile-logo-height: 45px;
 }
 
-/* Resetam proprietatile default */
+/* Reset default properties */
 * {
   box-sizing: border-box;
 }
@@ -51,7 +52,7 @@ a {
   text-decoration: none;
 }
 
-/* Necesar pentru mobil */
+/* Mobile using */
 input[type="submit"] {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -59,13 +60,13 @@ input[type="submit"] {
   opacity: 1;
 }
 
-/* Adaugam proprietati legate de font si culori */
+/* Font and colors properties*/
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 h1 {
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   color: var(--text-dark);
 }
 
@@ -75,7 +76,7 @@ h2 {
 }
 
 h3 {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   color: var(--text-secondary);
 }
 
@@ -151,7 +152,7 @@ nav li {
 }
 
 nav a {
-  font-size: var(--fs-small);
+  font-size: var(--fs-medium);
   text-transform: uppercase;
 
   color: var(--text-dark);
@@ -245,5 +246,69 @@ nav .menstrual-phases:hover .submenu {
     left: 0;
 
     background-color: var(--bg-primary);
+  }
+}
+
+/* Cards stilization */
+.about .cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.about .cards-container .card {
+  padding: 0 var(--spacing-small);
+  width: calc(100% / 4);
+}
+
+.about .cards-container .card-content {
+  border: 0.07rem solid var(--bg-dark);
+  border-radius: 0.5rem;
+  padding: var(--spacing-tiny);
+  height: 100%;
+}
+
+.cards-container .card .card-image {
+  width: 100%;
+  align-self: center;
+  height: 10rem;
+}
+
+.cards-container .card .card-content-details {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.cards-container .card h3 {
+  margin: var(--spacing-medium) 0;
+  color: var(--text-dark);
+}
+
+.cards-container .card p {
+  color: var(--text-secondary);
+  margin: 0 var(--spacing-tiny);
+}
+
+.cards-container a {
+  background-color: var(--button-color);
+  color: var(--text-button-color);
+
+  width: fit-content;
+  margin: var(--spacing-medium) 0;
+  padding: var(--spacing-small);
+  border: 0.13rem solid var(--button-color);
+  border-radius: 0.25rem;
+}
+
+@media (max-width: 992px) {
+  .about .cards-container .card {
+    width: 50%;
+  }
+
+  @media (max-width: 768px) {
+    .about .cards-container .card {
+      width: 100%;
+    }
   }
 }

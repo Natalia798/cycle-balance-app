@@ -1,0 +1,68 @@
+.welcome {
+  height: 100vh;
+  background-color: var(--bg-primary);
+}
+
+.welcome .container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.welcome p {
+  color: var(--text-secondary);
+  font-size: calc(var(--fs-large) * 1.2);
+  margin: var(--spacing-medium) 0;
+}
+
+.welcome a {
+  background-color: var(--button-color);
+  color: var(--text-button-color);
+
+  padding: var(--spacing-medium);
+  border: 2px solid var(--button-color);
+  border-radius: 0.25rem;
+
+  margin: var(--spacing-tiny) 0;
+}
+
+.welcome a:hover {
+  background-color: transparent;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 768px) {
+  .welcome h1 {
+    font-size: var(--fs-large);
+  }
+
+  .welcome p {
+    font-size: var(--fs-medium);
+  }
+
+  .welcome a {
+    padding: var(--spacing-small);
+    font-size: var(--fs-medium);
+  }
+}
+
+.about {
+  height: 100vh;
+}
+
+.about .container {
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.about .app-description {
+  color: var(--text-secondary);
+  font-size: var(--fs-large);
+  margin: var(--spacing-large) 0;
+}
