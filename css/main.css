@@ -1,30 +1,26 @@
 :root {
-  --text-primary: #f1baba;
-  --text-secondary: #325221;
-  --text-dark: #e63668;
-  --text-light: #f1baba;
-  --text-white: #ffffff;
+  --bg-primary: #e5c2c0ff;
+  --bg-secondary: #8fd5a6ff;
 
-  --bg-primary: #f3d9d9;
-  /* --bg-secondary: #9bbcaa; */
-  --bg-secondary: #325221;
-  --bg-dark: #e63668;
-  --bg-light: #f1baba;
+  --text-primary: #6d2e46ff;
+  --text-secondary: #1a5e63ff;
+  --text-dark: #1c0b19ff;
+  --text-light: #e4fde1;
 
-  --button-color: #e63668;
-  --text-button-color: #ffffff;
+  --button-color: #ffca3aff;
+  --text-button-color: #1c0b19ff;
+  --text-button-font-size: 1rem;
 
-  --fs-large: 1rem;
-  --fs-medium: 0.875rem;
-  --fs-small: 0.75rem;
+  --fs-paragraph: 1rem;
+  --fs-sub-subtitle: 1.5rem;
+  --fs-subtitle: 2rem;
+  --fs-title: 3rem;
+  --fs-line-height: 1.25rem;
 
-  --spacing-xl: 2.625rem;
-  --spacing-large: 1.75rem;
-  --spacing-medium: 1rem;
-  --spacing-small: 0.5rem;
-  --spacing-tiny: 0.25rem;
-
-  --mobile-logo-height: 45px;
+  --spacing-normal: 0.625rem;
+  --spacing-small: 0.313rem;
+  --spacing-large: 1.25rem;
+  --spacing-xl: 1.875rem;
 }
 
 /* Reset default properties */
@@ -66,23 +62,28 @@ body {
 }
 
 h1 {
-  font-size: 2.5rem;
-  color: var(--text-dark);
+  font-size: var(--fs-title);
+  color: var(--text-primary);
+  padding-bottom: var(--spacing-xl);
 }
 
 h2 {
-  font-size: 1.75rem;
+  font-size: var(--fs-subtitle);
   color: var(--text-primary);
+  padding-bottom: var(--spacing-large);
 }
 
 h3 {
-  font-size: 1.2rem;
+  font-size: var(--fs-sub-subtitle);
   color: var(--text-secondary);
+  padding-bottom: var(--spacing-normal);
 }
 
 p {
-  font-size: var(--fs-medium);
+  font-size: var(--fs-paragraph);
   color: var(--text-dark);
+  line-height: var(--fs-line-height);
+  padding-bottom: var(--spacing-normal);
 }
 
 /* Reusable classes */
@@ -92,7 +93,7 @@ p {
 
   margin: auto;
 
-  padding: var(--spacing-medium);
+  padding: var(--spacing-normal);
 }
 
 /* Layout */
@@ -125,17 +126,18 @@ nav .container {
   align-items: center;
 }
 
-nav .logo-link {
+nav .logo {
   padding: 0;
-}
 
-nav img {
-  width: auto;
-  height: 60px;
+  color: var(--text-secondary);
+
+  font-family: "Philosopher", sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
 }
 
 nav .menu-icon {
-  color: var(--text-dark);
+  color: var(--text-secondary);
   display: none;
 }
 
@@ -152,41 +154,47 @@ nav li {
 }
 
 nav a {
-  font-size: var(--fs-medium);
+  font-size: var(--fs-paragraph);
+  font-weight: 700;
   text-transform: uppercase;
 
-  color: var(--text-dark);
+  color: var(--text-secondary);
 
-  padding: var(--spacing-medium);
+  padding: var(--spacing-large);
+}
+
+nav a:last-of-type {
+  padding: var(--spacing-large);
 }
 
 nav .arrow-down-icon {
-  font-size: var(--fs-large);
+  font-size: var(--fs-paragraph);
 
   position: absolute;
 }
 
-nav a:hover {
-  color: var(--text-secondary);
+nav .menu-icon-container a:hover {
+  color: var(--text-primary);
 }
 
 nav .submenu {
   display: none;
 
   position: absolute;
-  top: calc(100% - var(--spacing-small));
-  left: var(--spacing-medium);
-
-  width: 15rem;
-  padding: var(--spacing-tiny) 0;
 
   background-color: var(--bg-primary);
+
+  top: calc(100% - var(--spacing-normal));
+  left: var(--spacing-large);
+
+  width: 15rem;
 
   z-index: 3;
 }
 
 nav .submenu a {
-  padding: var(--spacing-tiny) var(--spacing-small);
+  padding: var(--spacing-small) 0;
+  font-size: var(--fs-paragraph);
 }
 
 nav .menstrual-phases:hover .submenu {
@@ -195,12 +203,12 @@ nav .menstrual-phases:hover .submenu {
 
 /* Mobile stilization */
 @media (max-width: 768px) {
-  nav img {
-    height: var(--mobile-logo-height);
-  }
-
   nav ul {
     display: none;
+  }
+
+  nav a {
+    padding: var(--spacing-normal);
   }
 
   nav .menu-icon {
@@ -242,7 +250,7 @@ nav .menstrual-phases:hover .submenu {
 
     position: fixed;
 
-    top: calc(var(--mobile-logo-height) + 2 * var(--spacing-medium));
+    top: calc(45px + 2 * var(--spacing-normal));
     left: 0;
 
     background-color: var(--bg-primary);
@@ -261,10 +269,20 @@ nav .menstrual-phases:hover .submenu {
   width: calc(100% / 4);
 }
 
+.about .cards-container .card:first-of-type {
+  padding: 0 var(--spacing-small) 0 0;
+  width: calc(100% / 4);
+}
+
+.about .cards-container .card:last-of-type {
+  padding: 0 0 0 var(--spacing-small);
+  width: calc(100% / 4);
+}
+
 .about .cards-container .card-content {
-  border: 0.07rem solid var(--bg-dark);
+  border: 0.2rem solid var(--bg-primary);
   border-radius: 0.5rem;
-  padding: var(--spacing-tiny);
+  padding: var(--spacing-small);
   height: 100%;
 }
 
@@ -281,13 +299,13 @@ nav .menstrual-phases:hover .submenu {
   align-items: center;
 }
 .cards-container .card h3 {
-  margin: var(--spacing-medium) 0;
-  color: var(--text-dark);
+  padding-top: var(--spacing-normal);
+  font-size: 1.25rem;
+  color: var(--text-primary);
 }
 
 .cards-container .card p {
-  color: var(--text-secondary);
-  margin: 0 var(--spacing-tiny);
+  color: var(--text-dark);
 }
 
 .cards-container a {
